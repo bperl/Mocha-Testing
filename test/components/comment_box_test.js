@@ -22,4 +22,22 @@ describe('CommentBox', () => {
     expect(component.find('button')).to.exist;
   });
 
+  describe('entering some text', () => {
+    // The beforeEach above will still run on each of these tests
+
+    beforeEach(() => {
+      // change event triggered when user types, we're simulating that
+      component.find('textarea').simulate('change', 'new comment');
+    });
+
+    it('shows text that is entered', () => {
+      expect(component.find('textarea')).to.have.value('new comment');
+    });
+
+    it('when submitted, clears the input', () => {
+
+    });
+
+  });
+
 })
