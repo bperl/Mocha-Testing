@@ -17,13 +17,15 @@ import App from '../../src/components/app';
 
 // Use describe to group together similar tests. 'App' is a string and can be anything, it doesn't need to be 'App'
 describe('App', () => {
+  let component;
+
+  beforeEach(() => {
+    // create an instance of App
+    component = renderComponent(App);
+  })
 
   // Use 'it' to test a single attribute of a target.
   it('shows the correct text', () => {
-
-    // create an instance of App
-    const component = renderComponent(App);
-
     // Use 'expect' to make an 'assertion' about a target
     // Purpose of expect is to make one simple declarative test about a component.
     // Example: expect(component).to.have.class('comment-box')
@@ -32,6 +34,10 @@ describe('App', () => {
     expect(component).to.contain('React simple starter'); // component should contain the text 'React simple starter'
 
   });
+
+  it('shows a comment box', () => {
+    expect(component.find('.comment-box')).to.exist
+  })
 
 });
 
