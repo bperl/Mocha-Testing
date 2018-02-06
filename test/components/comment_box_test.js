@@ -10,7 +10,8 @@ describe('CommentBox', () => {
   });
 
   it('has a button', () => {
-
+    const component = renderComponent(CommentBox);
+    expect(component.find('button')).to.exist;
   });
 
 })
